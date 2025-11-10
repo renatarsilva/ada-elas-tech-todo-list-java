@@ -26,17 +26,20 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             int opcao = sc.nextInt();
             System.out.println("A opção escolhida foi: "+ opcao);
+            sc.nextLine();
 
             executando = switch (opcao) {
                 case 1 -> {
-                    System.out.println("Digite o titulo");
+                    System.out.println("Digite o titulo: ");
                     String titulo = sc.nextLine();
-                    System.out.println("Digite a descrição");
+                    System.out.println("Digite a descrição: ");
                     String descricao = sc.nextLine();
-                    System.out.println("Digite a data");
                     System.out.println("Digite a data de entrega (yyyy-mm-dd)");
                     LocalDate dataEntrega = LocalDate.parse(sc.nextLine());
                     System.out.println("Cadastrar tarefa");
+
+                    Tarefa novaTarefa = new Tarefa(titulo, descricao, dataEntrega);
+                    System.out.println(novaTarefa);
                     yield true;
                 }
                 case 2 -> {
